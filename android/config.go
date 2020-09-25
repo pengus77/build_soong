@@ -1067,7 +1067,7 @@ func (c *deviceConfig) JavaCoverageEnabledForPath(path string) bool {
 }
 
 func (c *deviceConfig) SpecificCameraParametersLibrary() string {
-	return String(c.config.productVariables.Cesium.Specific_camera_parameter_library)
+	return String(c.config.productVariables.Kowalski.Specific_camera_parameter_library)
 }
 
 // Returns true if gcov or clang coverage is enabled.

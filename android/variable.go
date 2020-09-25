@@ -20,7 +20,7 @@ import (
 	"runtime"
 	"strings"
 
-	"cesium/soong/android"
+	"kowalski/soong/android"
 
 	"github.com/google/blueprint/proptools"
 )
@@ -134,8 +134,8 @@ type variableProperties struct {
 			Exclude_srcs []string `android:"arch_variant"`
 		} `android:"arch_variant"`
 
-		// Include CesiumOS variables
-		Cesium android.Product_variables
+		// Include KowalskiOS variables
+		Kowalski android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -342,8 +342,8 @@ type productVariables struct {
 
 	BoardUsesRecoveryAsBoot *bool `json:",omitempty"`
 
-	// Include CesiumOS variables
-	Cesium android.ProductVariables
+	// Include KowalskiOS variables
+	Kowalski android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
@@ -601,8 +601,8 @@ func createVariableProperties(moduleTypeProps []interface{}, productVariables in
 func createVariablePropertiesType(moduleTypeProps []interface{}, productVariables interface{}) reflect.Type {
 	typ, _ := proptools.FilterPropertyStruct(reflect.TypeOf(productVariables),
 		func(field reflect.StructField, prefix string) (bool, reflect.StructField) {
-			if strings.HasPrefix(prefix, "Product_variables.Cesium") {
-				// Convert Product_variables.Cesium.Foo to Cesium.Foo
+			if strings.HasPrefix(prefix, "Product_variables.Kowalski") {
+				// Convert Product_variables.Kowalski.Foo to Kowalski.Foo
 				_, prefix = splitPrefix(prefix)
 			}
 
